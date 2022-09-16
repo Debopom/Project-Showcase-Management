@@ -22,22 +22,36 @@
         $group_name = $_POST['group_name'];
         $group_category = $_POST['group_category'];
 
-        echo "hoise!!!!";
+        $query2 = "SELECT * FROM groups WHERE group_id = '$group_id'";
+        $result2 = mysqli_query($conn, $query2);
+        $row = $result2 -> fetch_assoc();
+        if($row>0){
 
-        if (!empty($group_id) && !empty($student_id) && !empty($group_name) && !empty($group_category)) {
-
-            //save to database
-            //echo $name . " " . $password;
-            $query = "insert into groups (group_id,student_id, group_name, group_category) values ('$group_id','$student_id', '$group_name', '$group_category')";
-
-            mysqli_query($conn, $query);
-
-            header("Location: login.php");
+            echo '<script>alert("group ID is taken.. Please try another id");</script>';
             die;
-        } else {
-            echo "Please enter some valid information!";
+        }else{
+            if (!empty($student_id) && !empty($group_name) && !empty($group_category)) {
+
+                $student_ids = explode(',',$student_id);
+                foreach($student_ids as $student_id){
+                    $query = "insert into groups (group_id,student_id, group_name, group_category) values ('$group_id','$student_id', '$group_name', '$group_category')";
+    
+                    mysqli_query($conn, $query);
+    
+                }
+                echo '<script>alert ("created successfully");</script>';
+    
+                header("Location: team_page.php");
+                die;
+            } else {
+                echo '<script>alert("something went wrong please try again");</script>';
+                header("Location: create_team.php");
+            }
         }
-    }
+
+        }
+
+        
     ?>
 
 
@@ -51,10 +65,13 @@
                         <div>
                             <p class="h2">Create your team.</p>
                         </div>
-
                         <div class="input-group mb-3">
-                            <input type="text" name="group_id" id="group_id" class="form-control  input_user" placeholder="Group ID" required>
+                            <div class="input-group-append">
+
+                            </div>
+                            <input type="text" name="group_id" id="group_id" class="form-control  input_user" placeholder="Please enter a unique group ID" required>
                         </div>
+
 
                         <div class="input-group mb-3">
                             <div class="input-group-append">
@@ -96,11 +113,7 @@
         </div>
     </div>
 
-    <script>
-        function myFunction() {
-            alert("Team Created Successfully!");
-        }
-    </script>
+  
 
 </body>
 

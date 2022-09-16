@@ -48,13 +48,27 @@ if (!isset($_SESSION['student_id'])) {
 
                 if (mysqli_num_rows($result2) > 0) {
                     while ($row = mysqli_fetch_assoc($result2)) {
+                        $group_id = $row['group_id'];
                 ?>
                         <div class="card m-2">
                             <div class="card-">
                                 <h4 class="card-header">Name: <?php echo $row['group_name']; ?> </h4>
                                 <p class="m-1">ID:<?php echo $row['group_id']; ?> </p>
                                 <p class="m-1">Category: <?php echo $row['group_category']; ?></p>
-                                <a href='/project_management/team_modification.php?id=<?php echo $row['group_id'] ?>' class="btn btn-primary m-1">Edit</a>
+                                <h4>Group members:</h4>
+                                    <?php
+                                    $sql2 = "SELECT * FROM  groups AS g JOIN student AS s ON (g.student_id=s.student_id)  WHERE group_id = '$group_id'";
+                                    $rs2 = $conn-> query($sql2); 
+                                    while($rows1=mysqli_fetch_array($rs2)) 
+                                                        { 
+                                                            ?>
+                                                            <?php echo $rows1['student_id']; ?> <?php echo $rows1['name']; ?> <br>
+
+
+                                            <?php
+                                                }?>
+
+                                <a href='team_delete.php?id=<?php echo $row['group_id'] ?>' class="btn btn-primary m-1">Delete</a>
                             </div>
                         </div>
                     <?php
@@ -70,12 +84,16 @@ if (!isset($_SESSION['student_id'])) {
         <?php } ?>
         </div>
     </div>
+    
+    
+
+    <a href="create_team.php" class="btncr btn-success btn-lg btn-block text-center">Create a new team</a>
+    
 
 
-
-
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
 </body>
 
 </html>

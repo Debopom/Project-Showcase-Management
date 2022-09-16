@@ -90,7 +90,8 @@
     </div>
   
   </div>
-    <button type="button" class="btn btn-succes" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <br>
+    <button type="button" class="btncr btn-success btn-lg btn-block text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                        Add project
                     </button>
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
