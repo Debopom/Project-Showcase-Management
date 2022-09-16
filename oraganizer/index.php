@@ -11,12 +11,12 @@ if(isset($_POST['username'])){
   $password=$_POST['password'];
   // $query = "SELECT * from judge where judge_id = '$judge_id' limit 1";
   
-  $sql="SELECT * from oganizers  where name='$uname'AND Password='$password' limit 1";
+  $sql="SELECT * from oganizers  where id=$uname AND Password='$password' limit 1";
   
   $result=mysqli_query($con,$sql);
   
   if(mysqli_num_rows($result)==1){
-    header("Location:  http://localhost/orga-lofinphp/meetings.html");
+    header("Location: dashboard.php");
       exit();
   }
   else{
@@ -61,8 +61,8 @@ if(isset($_POST['username'])){
     <form method="POST">
         <h3>Login Here</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" name="username">
+        <label for="username">ID</label>
+        <input type="text" placeholder="ID provided by admin" id="username" name="username">
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="password">
