@@ -23,6 +23,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="add_judge.php">Add judge</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="assign_room.php">Assign room</a>
+            </li>
 
 
             <li class="nav-item">

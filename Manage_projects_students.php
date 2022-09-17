@@ -55,7 +55,7 @@
               <th>Group name </th> 
               <th>Group type/ Project type </th> 
               <th>Desctiption </th>
-              <th>Actions </th>  
+              
 
             </tr>
       <?php      
@@ -66,22 +66,7 @@
         <td><?php echo $rows['group_name']; ?></td> 
         <td><?php echo $rows['group_category']; ?></td> 
         <td><?php echo $rows['description']; ?></td> 
-        <td>
-        <form name="update_status" action="api/update_status.php" method="post">
-                    <input type="hidden" name="project_id" id="project_id" value="<?php echo $rows['project_id']; ?>">
-                        <select name="status_update" class="form-select">
-                            <option selected>Open this select menu</option>
-                            <option value="add_update">Add an update</option>
-                            <option value="edit_title">Edit project title</option>
-                            <option value="edit_description">Edit project Description</option>
-
-
-                        </select>
-                        <div class="text-center my-4">
-                         <input type="submit" value="Submit"> </div>
-                    </form>
-
-            </td>
+        
         
     </tr> 
     <?php

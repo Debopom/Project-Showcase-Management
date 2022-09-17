@@ -21,11 +21,15 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="Manage_projects_students.php">Project </a>
+                <a class="nav-link" href="Manage_projects_students.php">Manage Projects </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
+                <a class="nav-link" href="project_submission_page.php">Project Submit</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="project_update_page.php">Project Update</a>
             </li>
 
             <li class="nav-item">

@@ -33,6 +33,7 @@
     
     
     ?>
+
     <h2><?php echo $result['project_title']; ?></h2>
     <h3>Group Name : <?php echo $result['group_name']; ?></h3>
             <h4>Group members:</h4>
@@ -55,6 +56,7 @@
               <th>Description</th> 
               <th>Feedback </th>
               <th>Status</th>
+              <th>Update file</th> 
               <th>Add comment/feedback</th> 
               <th>Change status</th> 
             </tr>
@@ -66,6 +68,7 @@
         <td><?php echo $rows['description']; ?></td> 
         <td><?php echo $rows['feedback']; ?></td> 
         <td><?php echo $rows['status']; ?></td> 
+        <td><a href="filedownload.php?link=<?php echo $rows['file']; ?>"><?php echo $rows['file']; ?></a></td>
         <td>
                 <form name = "comment_update" action="api/update_comment.php" method="post">
                     <input type="textfield" name="feedback" >
