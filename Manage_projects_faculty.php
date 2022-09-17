@@ -25,10 +25,11 @@
 
      session_start();
      include('faculty_navbar.php');
+     $faculty_id = $_SESSION['faculty_id'];
      
 
      include_once 'dbconnect.php';
-     $sql = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) WHERE faculty_id = 1 GROUP BY p.project_id";
+     $sql = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) WHERE faculty_id = $faculty_id  GROUP BY p.project_id";
     ?>
     <br><br>
     
@@ -54,7 +55,7 @@
                                             <th>Description</th> 
                                             <th>Category </th>
                                             <th></th> 
-                                            
+                                            <th></th> 
 
                                                 
                                         </tr> 
@@ -81,6 +82,15 @@
                                                     
                                                     
                                                 <input type="submit" class="btn btn-primary" name = "submit" value="Show Project details">
+                                        </form>
+                                        </td>
+                                        <td>
+
+                                                <form name = "confirm" action="delete_project.php" method="post">
+                                                    <input type="hidden" name="project_id" value="<?php echo $rows['project_id']; ?>">
+                                                    
+                                                    
+                                                <input type="submit" class="btn btn-primary" name = "submit" value="Delete Project">
                                             </form>
                                             </td>
                                         </tr>

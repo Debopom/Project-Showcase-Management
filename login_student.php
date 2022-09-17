@@ -20,6 +20,7 @@
         //something was posted
         $student_id = $_POST['student_id'];
         $password = $_POST['password'];
+        $_SESSION['student_id'] = $student_id;
 
         if (!empty($student_id) && !empty($password)) {
 

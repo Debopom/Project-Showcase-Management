@@ -14,18 +14,14 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" href="faculty_dashboard.php">Home</a>
+                <a class="nav-link active" href="dashboard.php">Home</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="Manage_projects_faculty.php">Projects </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
+                <a class="nav-link" href="add_notice.php">Notices</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="judge">Judge Panel</a>
+                <a class="nav-link" href="add_judge.php">Add judge</a>
             </li>
 
 

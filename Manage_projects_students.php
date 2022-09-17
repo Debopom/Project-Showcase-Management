@@ -22,14 +22,15 @@
 
     include_once 'dbconnect.php';
      include('student_navbar.php');
+        $student_id = $_SESSION['student_id'];
     
-        $query2 = "SELECT * FROM groups WHERE student_id =2";
+        $query2 = "SELECT * FROM groups WHERE student_id =$student_id";
         $result2 = mysqli_query($conn,$query2);
 
         $query3 = "SELECT * FROM faculty";
         $result3 = mysqli_query($conn,$query3);
 
-    $sql1 = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id)JOIN student AS s ON(g.student_id=s.student_id) WHERE s.student_id =1";
+    $sql1 = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id)JOIN student AS s ON(g.student_id=s.student_id) WHERE s.student_id =$student_id";
     $rs = $conn-> query($sql1);
 
 
@@ -147,7 +148,7 @@
                                                         <option value="<?php echo $row3["faculty_id"];
                                             
                                                         ?>">
-                                                            <?php echo $row3["faculty_id"];
+                                                            <?php echo $row3["faculty_name"];
                                                             ?>
                                                         </option>
                                                     <?php 

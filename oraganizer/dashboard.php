@@ -53,7 +53,7 @@ if (!isset($_SESSION['faculty_id'])) {
                     <h6 class="card-title">Date: <?php echo $user_data2['date']; ?> </h6>
                     <hr>
                     <p class="card-text"><?php echo $user_data2['notice']; ?></p>
-                    <a href="student-notice-view.php" class="btn btn-primary">Show all</a>
+                    <a href="add_notice.php" class="btn btn-primary">Show all</a>
                 </div>
             </div>
 
