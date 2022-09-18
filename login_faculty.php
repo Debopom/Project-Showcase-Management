@@ -80,13 +80,13 @@
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" name="faculty_id" id="faculty_id" class="form-control  input_user" required>
+                            <input type="text" name="faculty_id" id="faculty_id" class="form-control  input_user" placeholder="Enter Your ID" required>
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="faculty_password" name="faculty_password" id="faculty_password" class="form-control input_pass" required>
+                            <input type="password" name="faculty_password" id="faculty_password" class="form-control input_pass" placeholder="Enter Your Password" required>
                         </div>
                 </div>
                 <div class="d-flex justify-content-center mt-3 container">

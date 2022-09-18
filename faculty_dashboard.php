@@ -64,16 +64,29 @@ if (!isset($_SESSION['faculty_id'])) {
     <div class="container">
         <div class="col">
             <div class="card my-2">
-                <h5 class="card-header">Notice</h5>
-                <div class="card-body">
-                    <h6 class="card-title">Date: <?php echo $user_data2['date']; ?> </h6>
-                    <hr>
-                    <p class="card-text"><?php echo $user_data2['notice']; ?></p>
-                    <a href="faculty-notice-view.php" class="btn btn-primary">Show all</a>
+                <h5 class="card-header">Notices</h5>
+                <?php
+                if ($user_data2 > 0) {
+                ?>
+                    <div class="card-body">
+                        <h6 class="card-title">Date: <?php echo $user_data2['date']; ?> </h6>
+                        <hr>
+                        <p class="card-text"><?php echo $user_data2['notice']; ?></p>
+                        <a href="student-notice-view.php" class="btn btn-primary">Show all</a>
+                    </div>
+            </div>
+        <?php
+                } else {
+        ?>
+
+            <div class="card m-1">
+                <div class="m-1">
+                    <p>There's no notice for you.</p>
                 </div>
             </div>
+        <?php } ?>
 
-            
+
 
 
 

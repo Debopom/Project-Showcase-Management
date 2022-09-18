@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nav</title>
-    
+
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout</a>
+                <a class="nav-link" href="logout_organizer.php">Logout</a>
             </li>
         </ul>
     </nav>
