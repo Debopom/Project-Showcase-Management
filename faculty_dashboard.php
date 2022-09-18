@@ -69,42 +69,11 @@ if (!isset($_SESSION['faculty_id'])) {
                     <h6 class="card-title">Date: <?php echo $user_data2['date']; ?> </h6>
                     <hr>
                     <p class="card-text"><?php echo $user_data2['notice']; ?></p>
-                    <a href="student-notice-view.php" class="btn btn-primary">Show all</a>
+                    <a href="faculty-notice-view.php" class="btn btn-primary">Show all</a>
                 </div>
             </div>
 
-            <div class="card my-2">
-                <h5 class="card-header">Groups</h5>
-
-                <?php
-
-                $query2 = "SELECT * FROM groups WHERE faculty_id = '$_SESSION[faculty_id]' ";
-                $result2 = mysqli_query($conn, $query2);
-
-                if (mysqli_num_rows($result2) > 0) {
-                    while ($row = mysqli_fetch_assoc($result2)) {
-                ?>
-                        <div class="col">
-                            <h5>Groups</h5>
-                            <div class="card my-2">
-                                <div class="card-">
-                                    <h4 class="card-header">Name: <?php echo $row['group_name']; ?> </h4>
-                                    <p>ID:<?php echo $row['group_id']; ?> </p>
-                                    <p class="card-text">Category: <?php echo $row['group_category']; ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                } else {
-                    ?>
-                    <div class=>
-                        <div>
-                            <p>There's no group under you.</p>
-                        </div>
-                    </div>
-            </div>
-        <?php } ?>
+            
 
 
 

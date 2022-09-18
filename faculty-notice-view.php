@@ -23,7 +23,7 @@ require 'dbcon.php'
             <div class="card">
                <div class="card-header">
                 <h4>Notice Board
-                  <a href="student_dashboard.php" class="btn btn-success float-end">Back</a>
+                  <a href="faculty_dashboard.php" class="btn btn-success float-end">Back</a>
                 </h4>
                </div>
                <div class="card-body">

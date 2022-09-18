@@ -42,7 +42,7 @@ if (!isset($_SESSION['student_id'])) {
 
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Upload ZIP file here</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" id="formFile" name="file">
                         <input type="hidden" name="project_id" id="project_id" class="form-control  input_user" value=<?php echo $data ?> required>
                     </div>
                     <button type="submit" name="button" class="btn btn">Submit</button>

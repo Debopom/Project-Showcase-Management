@@ -55,6 +55,8 @@
               <th>Group name </th> 
               <th>Group type/ Project type </th> 
               <th>Desctiption </th>
+              <th>Final File</th>
+              <th>Room number</th>
               
 
             </tr>
@@ -66,6 +68,8 @@
         <td><?php echo $rows['group_name']; ?></td> 
         <td><?php echo $rows['group_category']; ?></td> 
         <td><?php echo $rows['description']; ?></td> 
+        <td><a href="filedownload.php?link=<?php echo $rows['final_file']; ?>"><?php echo $rows['final_file']; ?></a></td>
+        <td><?php echo $rows['room_number']; ?></td> 
         
         
     </tr> 
