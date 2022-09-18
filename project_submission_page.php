@@ -32,7 +32,8 @@ if (!isset($_SESSION['student_id'])) {
     ?>
 
     <div class="container">
-        <div class="col">
+        <div class="col"><br>
+        <br><br><br>
             <div class="card my-2">
                 <h5 class="card-header">Your Projects</h5>
 
