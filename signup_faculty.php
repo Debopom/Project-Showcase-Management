@@ -20,6 +20,7 @@
         $faculty_id = $_POST['faculty_id'];
         $faculty_email = $_POST['faculty_email'];
         $faculty_password = $_POST['faculty_password'];
+        $faculty_name = $_POST['faculty_name'];
 
         if (!empty($faculty_email) && !empty($faculty_id) && !empty($faculty_password)) {
 
@@ -30,7 +31,7 @@
             if (mysqli_num_rows($result1)) {
                 echo '<script>alert("User Already Exist")</script>';
             } else {
-                $query = "insert into faculty (faculty_id, faculty_email, faculty_password) values ('$faculty_id', '$faculty_email', '$faculty_password')";
+                $query = "insert into faculty (faculty_id, faculty_email, faculty_password,faculty_name ) values ('$faculty_id', '$faculty_email', '$faculty_password','$faculty_name')";
 
                 $result = mysqli_query($conn, $query);
 
@@ -69,10 +70,14 @@
                         <div class="input-group mb-3">
                             <input type="text" name="faculty_id" id="faculty_id" class="form-control  input_user" placeholder="Faculty ID" required>
                         </div>
-
+                        <div class="input-group mb-3">
+                        <input type="text" name="faculty_name" id="faculty_name" class="form-control  input_user" placeholder="Faculty name" required>
+                        </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
-
+                            
+                            
+                        
                             </div>
                             <input type="email" name="faculty_email" id="faculty_email" class="form-control  input_user" placeholder="Faculty email" required>
                         </div>

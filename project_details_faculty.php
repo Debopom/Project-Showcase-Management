@@ -18,10 +18,21 @@
 </head>
 <body>
     <?php
+    error_reporting(0);
     session_start();
     include('faculty_navbar.php');
     include_once 'dbconnect.php';
-    $project_id = $_POST['project_id'];
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $project_id = $_POST['project_id'];
+
+        $_SESSION['project_id'] = $project_id;
+
+    }else{
+        $project_id = $_SESSION['project_id'];
+
+    }
+    
+   
 
     $sql1 = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) WHERE project_id = $project_id GROUP BY p.project_id";
     $rs1 = $conn-> query($sql1);
@@ -33,6 +44,7 @@
     
     
     ?>
+
     <h2><?php echo $result['project_title']; ?></h2>
     <h3>Group Name : <?php echo $result['group_name']; ?></h3>
             <h4>Group members:</h4>
@@ -55,6 +67,8 @@
               <th>Description</th> 
               <th>Feedback </th>
               <th>Status</th>
+              <th>Update file</th> 
+              <th>Submition time</th>
               <th>Add comment/feedback</th> 
               <th>Change status</th> 
             </tr>
@@ -66,6 +80,8 @@
         <td><?php echo $rows['description']; ?></td> 
         <td><?php echo $rows['feedback']; ?></td> 
         <td><?php echo $rows['status']; ?></td> 
+        <td><a href="filedownload.php?link=<?php echo $rows['file']; ?>"><?php echo $rows['file']; ?></a></td>
+        <td><?php echo $rows['uploaded_on']; ?></td> 
         <td>
                 <form name = "comment_update" action="api/update_comment.php" method="post">
                     <input type="textfield" name="feedback" >

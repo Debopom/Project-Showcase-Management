@@ -22,14 +22,15 @@
 
     include_once 'dbconnect.php';
      include('student_navbar.php');
+        $student_id = $_SESSION['student_id'];
     
-        $query2 = "SELECT * FROM groups WHERE student_id =2";
+        $query2 = "SELECT * FROM groups WHERE student_id =$student_id";
         $result2 = mysqli_query($conn,$query2);
 
         $query3 = "SELECT * FROM faculty";
         $result3 = mysqli_query($conn,$query3);
 
-    $sql1 = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id)JOIN student AS s ON(g.student_id=s.student_id) WHERE s.student_id =1";
+    $sql1 = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id)JOIN student AS s ON(g.student_id=s.student_id) WHERE s.student_id =$student_id";
     $rs = $conn-> query($sql1);
 
 
@@ -54,7 +55,9 @@
               <th>Group name </th> 
               <th>Group type/ Project type </th> 
               <th>Desctiption </th>
-              <th>Actions </th>  
+              <th>Final File</th>
+              <th>Room number</th>
+              
 
             </tr>
       <?php      
@@ -65,22 +68,9 @@
         <td><?php echo $rows['group_name']; ?></td> 
         <td><?php echo $rows['group_category']; ?></td> 
         <td><?php echo $rows['description']; ?></td> 
-        <td>
-        <form name="update_status" action="api/update_status.php" method="post">
-                    <input type="hidden" name="project_id" id="project_id" value="<?php echo $rows['project_id']; ?>">
-                        <select name="status_update" class="form-select">
-                            <option selected>Open this select menu</option>
-                            <option value="add_update">Add an update</option>
-                            <option value="edit_title">Edit project title</option>
-                            <option value="edit_description">Edit project Description</option>
-
-
-                        </select>
-                        <div class="text-center my-4">
-                         <input type="submit" value="Submit"> </div>
-                    </form>
-
-            </td>
+        <td><a href="filedownload.php?link=<?php echo $rows['final_file']; ?>"><?php echo $rows['final_file']; ?></a></td>
+        <td><?php echo $rows['room_number']; ?></td> 
+        
         
     </tr> 
     <?php
@@ -90,7 +80,8 @@
     </div>
   
   </div>
-    <button type="button" class="btn btn-succes" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <br>
+    <button type="button" class="btncr btn-success btn-lg btn-block text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                        Add project
                     </button>
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -146,7 +137,7 @@
                                                         <option value="<?php echo $row3["faculty_id"];
                                             
                                                         ?>">
-                                                            <?php echo $row3["faculty_id"];
+                                                            <?php echo $row3["faculty_name"];
                                                             ?>
                                                         </option>
                                                     <?php 

@@ -15,6 +15,10 @@ include("dbconnect.php");
     echo $faculty_id;
     echo $description;
 
-    $sql1 = "INSERT INTO projects (project_title, group_id,  description, category, faculty_id) VALUES ('$project_title', $group_id ,'$description','$category', $faculty_id);";
+    $sql1 = "INSERT INTO projects (project_title, group_id,  description, category, faculty_id) VALUES ('$project_title', $group_id,'$description','$category', $faculty_id);";
     $rs = $conn-> query($sql1);
+    if($rs){
+        echo '<script>alert ("Deleted successfully");</script>';
+        header("Location: Manage_projects_students.php");
+    }
     ?>

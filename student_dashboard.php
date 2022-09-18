@@ -44,47 +44,61 @@ if (!isset($_SESSION['student_id'])) {
     <div class="container">
         <div class="col"><?php echo "<h1>Hello " . $user_data1['name'] . "</h1>"; ?></div>
         <div class="col">
-            <div class="card my-2">
-                <h5 class="card-header">Notice</h5>
-                <div class="card-body">
-                    <h6 class="card-title">Date: <?php echo $user_data2['date']; ?> </h6>
-                    <hr>
-                    <p class="card-text"><?php echo $user_data2['notice']; ?></p>
-                    <a href="student-notice-view.php" class="btn btn-primary">Show all</a>
-                </div>
-            </div>
 
             <div class="card my-2">
-                <h5 class="card-header">Groups</h5>
-
+                <h5 class="card-header">Notices</h5>
                 <?php
-
-                $query2 = "SELECT * FROM groups WHERE student_id = '$_SESSION[student_id]' ";
-                $result2 = mysqli_query($conn, $query2);
-
-                if (mysqli_num_rows($result2) > 0) {
-                    while ($row = mysqli_fetch_assoc($result2)) {
+                if ($user_data2 > 0) {
                 ?>
-
-                        <div class="card m-2">
-                            <div class="m-1">
-                                <h6>Name: <?php echo $row['group_name']; ?> </h6>
-                                <p>ID:<?php echo $row['group_id']; ?> </p>
-                                <p>Category: <?php echo $row['group_category']; ?></p>
-                            </div>
-                        </div>
-
-                    <?php
-                    }
-                } else {
-                    ?>
-                    <div class=>
-                        <div>
-                            <p>You are not in any group yet</p>
-                        </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Date: <?php echo $user_data2['date']; ?> </h6>
+                        <hr>
+                        <p class="card-text"><?php echo $user_data2['notice']; ?></p>
+                        <a href="student-notice-view.php" class="btn btn-primary">Show all</a>
                     </div>
             </div>
+        <?php
+                } else {
+        ?>
+
+            <div class="card m-1">
+                <div class="m-1">
+                    <p>There's no notice for you.</p>
+                </div>
+            </div>
         <?php } ?>
+
+        <div class="card my-2">
+            <h5 class="card-header">Groups</h5>
+
+            <?php
+
+            $query2 = "SELECT * FROM groups WHERE student_id = '$_SESSION[student_id]' ";
+            $result2 = mysqli_query($conn, $query2);
+
+            if (mysqli_num_rows($result2) > 0) {
+                while ($row = mysqli_fetch_assoc($result2)) {
+            ?>
+
+                    <div class="card m-2">
+                        <div class="m-1">
+                            <h6>Name: <?php echo $row['group_name']; ?> </h6>
+                            <p>ID:<?php echo $row['group_id']; ?> </p>
+                            <p>Category: <?php echo $row['group_category']; ?></p>
+                        </div>
+                    </div>
+
+                <?php
+                }
+            } else {
+                ?>
+                <div class=>
+                    <div>
+                        <p>You are not in any group yet</p>
+                    </div>
+                </div>
+        </div>
+    <?php } ?>
         </div>
     </div>
 

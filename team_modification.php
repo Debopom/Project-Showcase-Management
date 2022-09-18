@@ -17,7 +17,6 @@
 
     $data = $_GET['id'];
 
-    echo $data;
     ?>
 
     <?php include('student_navbar.php') ?>

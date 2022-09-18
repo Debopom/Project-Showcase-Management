@@ -30,6 +30,9 @@ if (!isset($_SESSION['faculty_id'])) {
     <?php
     include('faculty_navbar.php');
 
+    $query5 = ("SELECT * FROM faculty WHERE faculty_id	 ='$_SESSION[faculty_id]'");
+    $result5 = mysqli_query($conn, $query5);
+    $user_data5 = mysqli_fetch_assoc($result5);
     $query1 = ("SELECT * FROM projects WHERE faculty_id	 ='$_SESSION[faculty_id]'");
     $result1 = mysqli_query($conn, $query1);
     $user_data1 = mysqli_fetch_assoc($result1);
@@ -37,7 +40,7 @@ if (!isset($_SESSION['faculty_id'])) {
     ?>
 
     <div class="container">
-        <div class="col"><?php echo "<h1>Hello " . $user_data1['faculty_id'] . "</h1>"; ?></div>
+        <div class="col"><?php echo "<h1>Hello " . $user_data5['faculty_name'] . "</h1>"; ?></div>
         <div class="col">
             <div class="card my-2">
                 <h5 class="card-header">Projects</h5>
@@ -61,47 +64,29 @@ if (!isset($_SESSION['faculty_id'])) {
     <div class="container">
         <div class="col">
             <div class="card my-2">
-                <h5 class="card-header">Notice</h5>
-                <div class="card-body">
-                    <h6 class="card-title">Date: <?php echo $user_data2['date']; ?> </h6>
-                    <hr>
-                    <p class="card-text"><?php echo $user_data2['notice']; ?></p>
-                    <a href="student-notice-view.php" class="btn btn-primary">Show all</a>
-                </div>
-            </div>
-
-            <div class="card my-2">
-                <h5 class="card-header">Groups</h5>
-
+                <h5 class="card-header">Notices</h5>
                 <?php
-
-                $query2 = "SELECT * FROM groups WHERE faculty_id = '$_SESSION[faculty_id]' ";
-                $result2 = mysqli_query($conn, $query2);
-
-                if (mysqli_num_rows($result2) > 0) {
-                    while ($row = mysqli_fetch_assoc($result2)) {
+                if ($user_data2 > 0) {
                 ?>
-                        <div class="col">
-                            <h5>Groups</h5>
-                            <div class="card my-2">
-                                <div class="card-">
-                                    <h4 class="card-header">Name: <?php echo $row['group_name']; ?> </h4>
-                                    <p>ID:<?php echo $row['group_id']; ?> </p>
-                                    <p class="card-text">Category: <?php echo $row['group_category']; ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                } else {
-                    ?>
-                    <div class=>
-                        <div>
-                            <p>There's no group under you.</p>
-                        </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Date: <?php echo $user_data2['date']; ?> </h6>
+                        <hr>
+                        <p class="card-text"><?php echo $user_data2['notice']; ?></p>
+                        <a href="student-notice-view.php" class="btn btn-primary">Show all</a>
                     </div>
             </div>
+        <?php
+                } else {
+        ?>
+
+            <div class="card m-1">
+                <div class="m-1">
+                    <p>There's no notice for you.</p>
+                </div>
+            </div>
         <?php } ?>
+
+
 
 
 

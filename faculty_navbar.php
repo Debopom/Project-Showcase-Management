@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nav</title>
-    
+
 </head>
 
 <body>
@@ -22,10 +22,10 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
+                <a class="nav-link" href="judge">Judge Panel</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="judge">Judge Panel</a>
+                <a class="nav-link" href="search.php">Search projects</a>
             </li>
 
 

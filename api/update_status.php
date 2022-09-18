@@ -7,7 +7,11 @@
     $sql = "UPDATE updates SET status ='$status_update' WHERE project_id = $project_id AND update_no = $update_no ";
     $rs = $conn-> query($sql);
    if($rs){
-    echo "success";
+    if($rs){
+        echo '<script>alert ("Status updated!!");
+        window.location.replace("../project_details_faculty.php"); </script>';
+       }
+        
    }
     
     

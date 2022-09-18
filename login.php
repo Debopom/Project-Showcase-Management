@@ -21,13 +21,13 @@
                 <div class="d-flex justify-content-center mt-1">
                     <p class="h3">Login as,</p>
                 </div>
-                <form action="login_faculty.html">
+                <form action="login_faculty.php">
                     <div class="d-flex justify-content-center mt-1 container">
                         <button type="submit" name="button" class="btn btn">Faculty</button>
                     </div>
                 </form>
 
-                <form action="login_student.html">
+                <form action="login_student.php">
                     <div class="d-flex justify-content-center mt-1 container">
                         <button type="submit" name="button" class="btn btn">Student</button>
                     </div>
