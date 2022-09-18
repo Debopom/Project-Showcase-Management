@@ -24,6 +24,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="judge">Judge Panel</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="search.php">Search projects</a>
+            </li>
 
 
             <li class="nav-item">

@@ -27,7 +27,7 @@
 <script>
 function getData() {
     var category = document.getElementById("category").value; 
-    console.log("GET","organizer_api.php?category="+category);
+    console.log("GET","marks_api.php?category="+category);
     
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -36,7 +36,7 @@ function getData() {
 
       }
     };
-    xmlhttp.open("GET","organizer_api.php?category="+category,true);
+    xmlhttp.open("GET","marks_api.php?category="+category,true);
     xmlhttp.send();
 
     
@@ -53,19 +53,7 @@ function getData() {
 
 <?php include 'organizer_nav.php';
 include 'dbconnect.php';
-if(isset($_POST['submit'])){
-    
-    $project_id = $_POST['project_id'];
-    $room_number = $_POST['room_number'];
-    $sql = "UPDATE projects SET room_number = $room_number WHERE project_id = $project_id ";
-    $rs = $conn-> query($sql);
-    if($rs){
-        echo "<script>alert('Room assigned');</script>";
-        echo "<script>window.close();</script>";
-    }
-    
-    
-}?>
+?>
 
 <label for="group_category">Category: </label>
 

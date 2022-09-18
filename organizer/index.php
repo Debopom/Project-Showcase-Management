@@ -11,7 +11,7 @@ if (isset($_POST['username'])) {
   $password = $_POST['password'];
   // $query = "SELECT * from judge where judge_id = '$judge_id' limit 1";
 
-  $sql = "SELECT * from oganizers  where id=$uname AND Password='$password' limit 1";
+  $sql = "SELECT * from oganizers  where id='$uname' AND Password='$password' limit 1";
 
   $result = mysqli_query($con, $sql);
 
@@ -19,8 +19,8 @@ if (isset($_POST['username'])) {
     header("Location: dashboard.php");
     exit();
   } else {
-    echo " You Have Entered Incorrect Password";
-    exit();
+    $message = "Username and/or Password incorrect.\\nTry again.";
+    echo "<script type='text/javascript'>alert('$message');</script>";
   }
 }
 

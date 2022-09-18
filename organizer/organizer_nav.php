@@ -26,11 +26,16 @@
             <li class="nav-item">
                 <a class="nav-link" href="assign_room.php">Assign room</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="marks.php">Marks</a>
+            </li>
 
 
             <li class="nav-item">
                 <a class="nav-link" href="logout_organizer.php">Logout</a>
             </li>
+
+            
         </ul>
     </nav>
 

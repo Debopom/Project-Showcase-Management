@@ -18,10 +18,21 @@
 </head>
 <body>
     <?php
+    error_reporting(0);
     session_start();
     include('faculty_navbar.php');
     include_once 'dbconnect.php';
-    $project_id = $_POST['project_id'];
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $project_id = $_POST['project_id'];
+
+        $_SESSION['project_id'] = $project_id;
+
+    }else{
+        $project_id = $_SESSION['project_id'];
+
+    }
+    
+   
 
     $sql1 = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) WHERE project_id = $project_id GROUP BY p.project_id";
     $rs1 = $conn-> query($sql1);
